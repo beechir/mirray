@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920115133260",
+    "project_id": "mirray-litdjo",
+    "storage_bucket": "mirray-litdjo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920115133260:android:e0cd17bbd07a74a9cbade9",
+        "android_client_info": {
+          "package_name": "com.mycompany.mirray"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUieY1ZnGEzTxS2G6j8KLgVg2YhUOkBFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
