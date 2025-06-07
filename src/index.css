@@ -1,0 +1,122 @@
+/* index.css */
+
+:root {
+  --card-gap: 100px;
+}
+
+html,
+body,
+#root /* Target the root div where your React app is mounted */ {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* It's also a good practice to ensure the #root div fills the body */
+#root {
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+}
+
+/* Optional but highly recommended for consistent box model behavior */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@font-face {
+  font-family: 'Varino';
+  src: url('./assets/Varino - Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.glow-hover {
+  cursor: pointer;
+  transition: all 0.3s ease
+}
+
+.glow-hover:hover {
+  color: #574b02;
+  text-shadow: 0 0 5px #948003,
+               0 0 10px #948003,
+               0 0 20px #948003,
+               0 0 30px #948003,
+               0 0 40px #948003;
+                 transform: scale(1.05);
+
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: var(--card-gap);
+  padding: 0 20px;
+}
+
+.card {
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #9481035d;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Consistent gap between card elements */
+  max-width: 500px;
+  position: relative;
+  background-color: transparent;
+}
+
+/* Vertical divider between cards */
+.card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: calc(var(--card-gap) / -2);
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: #948003;
+  opacity: 0.5;
+}
+
+.button {
+  color: #eae9e3;
+  background-color: transparent;
+  border: 1px solid #ffd700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.button:hover {
+  color: #fff8dc;
+  background-color: #1a1a1a;
+  text-shadow:
+    0 0 8px #dab901db,
+    0 0 12px #dab902db,
+    0 0 20px #d9ae02dc;
+
+  box-shadow:
+    0 0 5px #dab901db,
+    0 0 10px #d8ad02dc,
+    0 0 15px #de9c01e1,
+    0 0 20px #dbb001dc;
+
+  transform: scale(1.05);
+}
