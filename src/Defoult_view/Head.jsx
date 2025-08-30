@@ -1,10 +1,18 @@
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth"; 
+import { supabase } from "../supabaseClient";
+
 
 function Head() {
     const navigate = useNavigate();
+    const user = useAuth();
 
     const goToContact = () => {
         navigate("/contact");
+    };
+
+    const goToBooking = () => {
+        navigate("/Booking");
     };
 
     const goToHome = () => {
@@ -17,6 +25,11 @@ function Head() {
         navigate("/gallery");
     }
 
+
+     const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/"); 
+  };
   
 
   return <header style={{
@@ -39,6 +52,7 @@ function Head() {
     width: "100%",
   }}
 >
+  
   {/*Home */}
   <h1 onClick={goToHome}
     className="glow-hover"
@@ -52,6 +66,9 @@ function Head() {
 
   {/*About, Gallery, Contact */}
   <div style={{ display: "flex", gap: "60px" }}>
+    <h1 onClick={goToBooking} className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
+      Book Ur Session
+    </h1>
     <h1 onClick={goToAbout} className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
       About Us
     </h1>
@@ -61,8 +78,16 @@ function Head() {
     <h1 onClick={goToContact} className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
       Contact
     </h1>
+    
+<div style={{ display: "flex", alignItems: "center" }}>
+  {user ? (
+ <button className="button" onClick={handleLogout}>
+              Log Out
+            </button>  ) : (
     <button className="button">Log In</button>
-  </div>
+  )}
+</div> 
+ </div>
 </div>
   </header>
 }

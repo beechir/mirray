@@ -1,5 +1,8 @@
 /* index.css */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap");
 :root {
   --card-gap: 100px;
 }
@@ -34,26 +37,22 @@ body,
 }
 
 @font-face {
-  font-family: 'Varino';
-  src: url('./assets/Varino - Normal.ttf') format('truetype');
+  font-family: "Varino";
+  src: url("./assets/Varino - Normal.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 .glow-hover {
   cursor: pointer;
-  transition: all 0.3s ease
+  transition: all 0.3s ease;
 }
 
 .glow-hover:hover {
   color: #574b02;
-  text-shadow: 0 0 5px #948003,
-               0 0 10px #948003,
-               0 0 20px #948003,
-               0 0 30px #948003,
-               0 0 40px #948003;
-                 transform: scale(1.05);
-
+  text-shadow: 0 0 5px #948003, 0 0 10px #948003, 0 0 20px #948003,
+    0 0 30px #948003, 0 0 40px #948003;
+  transform: scale(1.05);
 }
 
 .card-wrapper {
@@ -95,8 +94,8 @@ body,
 .button {
   color: #eae9e3;
   background-color: transparent;
-  border: 1px solid #ffd700;
-  padding: 12px 24px;
+  border: 2px solid white;
+  padding: 12px px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
@@ -106,17 +105,151 @@ body,
 
 .button:hover {
   color: #fff8dc;
-  background-color: #1a1a1a;
-  text-shadow:
-    0 0 8px #dab901db,
-    0 0 12px #dab902db,
-    0 0 20px #d9ae02dc;
+  background-color: transparent;
+  text-shadow: 0 0 8px #dab901db, 0 0 12px #dab902db, 0 0 20px #d9ae02dc;
 
-  box-shadow:
-    0 0 5px #dab901db,
-    0 0 10px #d8ad02dc,
-    0 0 15px #de9c01e1,
+  box-shadow: 0 0 5px #dab901db, 0 0 10px #d8ad02dc, 0 0 15px #de9c01e1,
     0 0 20px #dbb001dc;
 
   transform: scale(1.05);
+}
+
+.about_us_div {
+  border: #eae9e3;
+  border-radius: 2px;
+}
+
+/* fields style*/
+.montserratText {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+/*input text style*/
+.textfields {
+  border: none !important; /* remove all borders */
+  border-bottom: 2px solid #ccc !important; /* only bottom border */
+  outline: none !important; /* remove the default focus outline */
+  font-size: 14px;
+  transition: border-color 0.3s ease; /* smooth effect on focus */
+  background-color: transparent !important;
+  background: transparent !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+}
+
+.textfields:focus {
+  border-bottom-color: #dab901 !important; /* change color on focus */
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.textfields:active {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.textfields:focus-visible {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.textfields::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Force input styling */
+input.textfields {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid #ccc !important;
+  outline: none !important;
+}
+
+input.textfields:focus,
+input.textfields:active,
+input.textfields:focus-visible {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.body_button {
+  color: #eae9e3;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 12px px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+  width: 200px;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.body_button:hover {
+  color: #fff8dc;
+  background-color: transparent;
+  text-shadow: 0 0 8px #dab901db, 0 0 12px #dab902db, 0 0 20px #d9ae02dc;
+
+  box-shadow: 0 0 5px #dab901db, 0 0 10px #d8ad02dc, 0 0 15px #de9c01e1,
+    0 0 20px #dbb001dc;
+
+  transform: scale(1.05);
+}
+
+.buttons_text {
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Form transition animations */
+.form-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.form-slide-up-from-bottom {
+  animation: slideUpFromBottom 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.aref-ruqaa-regular {
+  font-family: "Aref Ruqaa", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.aref-ruqaa-bold {
+  font-family: "Aref Ruqaa", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
 }

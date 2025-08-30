@@ -1,10 +1,13 @@
 import Background from "./background.jsx";
 import Footer from "./FooterComponent.jsx";
 import Head from "./Head.jsx";
-function Default_view() {
+function Default_view({ children, bgColor }) {
   return (
     <>
-      <Background />
+    <> 
+      <Background bgColor={bgColor} />
+      <main>{children}</main>
+       </>
       <Footer />
       <Head />
     </>

@@ -1,4 +1,4 @@
-import youtube from "../assets/youtube.jpg";
+import youtube from "../assets/youtube.png";
 import instagram from "../assets/instagram.png";
 import facebook from "../assets/facebook.png";
 
@@ -14,9 +14,11 @@ function InstagramCard() {
           style={{
             width: "8vw",
             borderRadius: "20%",
+           filter: "invert(100%)",
+
           }}
           src={instagram}
-          alt="Youtube"
+          alt="instagram"
         />
 
         <p>Follow the latest news of Mirray production</p>
@@ -27,8 +29,9 @@ function InstagramCard() {
         <h2>Youtube Channel</h2>
         <img
           style={{
-            width: "8vw",
+            width: "6vw",
             borderRadius: "20%",
+            filter : "invert(100%)"
           }}
           src={youtube}
           alt="Youtube"
@@ -44,9 +47,11 @@ function InstagramCard() {
           style={{
             width: "8vw",
             borderRadius: "20%",
+                            filter: "invert(100%)",
+
           }}
           src={facebook}
-          alt="Youtube"
+          alt="facebook"
         />
 
         <p>Follow the latest news of Mirray production</p>
