@@ -1,32 +1,24 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // ✅ import useNavigate
-import { supabase } from "../supabaseClient";
+import { useLocation, useNavigate } from "react-router-dom";
+import useUserDisplayName from "../hooks/useUserDisplayName";
 
 function Booking_connected() {
-  const navigate = useNavigate(); // ✅ initialize navigate
+  const navigate = useNavigate();
   const location = useLocation();
-  const { name } = location.state || { name: "Guest" };
+  const navigationName = location.state?.name;
+  const { user, name, loading } = useUserDisplayName(navigationName);
 
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    async function getUser() {
-      const { data, error } = await supabase.auth.getUser();
-      if (error) console.error(error);
-      setUser(data?.user || null);
-    }
-    getUser();
-  }, []);
-
-  if (!user) {
+  if (loading) {
     return <h2>Loading...</h2>;
   }
 
-  // ⚠️ If email not confirmed
+  if (!user) {
+    return <h2>Please sign in first.</h2>;
+  }
+
   if (!user.email_confirmed_at) {
     return (
       <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h1>⚠️ Please confirm your email</h1>
+        <h1>Please confirm your email</h1>
         <p>
           We sent a confirmation link to <b>{user.email}</b>. <br />
           Confirm your email before continuing.
@@ -35,12 +27,12 @@ function Booking_connected() {
     );
   }
 
-  // 🎉 If email confirmed
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>🎉 Welcome {name}!</h1>
-      <p>Your email <b>{user.email}</b> has been confirmed ✅</p>
-      {/* ✅ Button works now */}
+      <h1>Welcome Back To Miray {name}!</h1>
+      <p>
+        Your email <b>{user.email}</b> has been confirmed
+      </p>
       <button
         onClick={() => navigate("/")}
         style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}

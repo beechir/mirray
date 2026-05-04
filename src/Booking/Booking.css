@@ -1,0 +1,221 @@
+/* Main Booking Page Container */
+.booking-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 96px 7vw 66px;
+  box-sizing: border-box;
+  color: #eae9e3;
+}
+
+/* Inner Content Container */
+.booking-content {
+  width: min(1040px, 100%);
+  display: grid;
+  grid-template-columns: minmax(310px, 410px) minmax(320px, 1fr);
+  gap: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-form-panel {
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  padding: 26px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.56);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.booking-form-copy {
+  margin-bottom: 22px;
+  text-align: right;
+  direction: rtl;
+}
+
+.booking-form-copy p {
+  margin: 0 0 8px;
+  color: #dab901;
+  font-family: "Varino", "Montserrat", sans-serif;
+  font-size: 13px;
+}
+
+.booking-form-copy h1 {
+  margin: 0;
+  color: #fff8dc;
+  font-family: "shajara", "NotoKufiLocal", "Noto Kufi Arabic", serif;
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow:
+    0 0 14px rgba(218, 185, 1, 0.26),
+    0 0 28px rgba(218, 185, 1, 0.14);
+}
+
+/* Form Container Wrapper */
+.sign-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* The actual form box (gold border) */
+.sign-form-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sign-form {
+  display: grid;
+  gap: 18px;
+}
+
+.sign-form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.sign-form-row label {
+  color: rgba(234, 233, 227, 0.78);
+}
+
+.sign-form-row input {
+  width: 100%;
+  color: #eae9e3;
+  padding: 8px 0;
+}
+
+.sign-submit {
+  justify-self: stretch;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.sign-toggle {
+  text-align: center;
+}
+
+.sign-toggle button {
+  background: none;
+  border: none;
+  color: #dab901;
+  cursor: pointer;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.sign-toggle button:hover {
+  color: #fff8dc;
+  text-shadow: 0 0 10px rgba(218, 185, 1, 0.6);
+}
+
+/* Hekma Image Container */
+.hekma-container {
+  position: relative;
+  width: 100%;
+  height: min(58vh, 520px);
+  overflow: hidden;
+  user-select: none;
+  border: 1px solid rgba(218, 185, 1, 0.35);
+  border-radius: 8px;
+  background-color: rgba(8, 9, 17, 0.34);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.28),
+    inset 0 0 30px rgba(218, 185, 1, 0.07);
+}
+
+.hekma-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(58vw, 720px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 2000ms ease-in-out;
+}
+
+.hekma-wrapper {
+  width: 100%;
+}
+
+/* Form Transitions */
+.form-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.form-slide-up-from-bottom {
+  animation: slideUpFromBottom 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- Mobile Responsive Styles (Horizontal Forced) --- */
+@media (max-width: 1024px) {
+  .booking-page {
+    padding: 96px 22px 78px;
+    align-items: flex-start;
+  }
+
+  .booking-content {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    width: min(560px, 100%);
+  }
+
+  .booking-form-panel {
+    padding: 22px;
+  }
+
+  .hekma-container {
+    height: 34vh;
+    min-height: 220px;
+  }
+  
+  .hekma-image {
+     width: min(110vw, 640px);
+  }
+
+  /* Adjust text sizes if needed */
+  .montserratText {
+    font-size: 10px !important;
+  }
+  .textfields {
+    font-size: 10px !important;
+  }
+  .body_button {
+    width: 100% !important;
+    font-size: 12px !important;
+  }
+}

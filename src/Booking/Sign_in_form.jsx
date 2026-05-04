@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import "./Booking.css";
 
 function Sign_in_form({ onToggle }) {
   const [formData, setFormData] = useState({
@@ -40,95 +41,34 @@ function Sign_in_form({ onToggle }) {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-            paddingLeft: "100px"
-
-      }}
-    >
-      <div
-        style={{
-          width: "400px",
-          height: "600px",
-          border: "2px solid gold",
-          borderRadius: "12px",
-          padding: "20px",
-          overflowY: "auto",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between"
-        }}
-      >
-        <form onSubmit={handleSubmit}>
-          <div
-            style={{
-              display: "flex", justifyContent: "space-between", marginBottom: "15px"
-            }}
-          >
+    <div className="sign-form-wrapper">
+      <div className="sign-form-box">
+        <form className="sign-form" onSubmit={handleSubmit}>
+          <div className="sign-form-row">
             <label className="montserratText">Email:</label>
             <input  className="textfields"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              style={{
-                border: "none",
-                borderBottom: "2px solid #ccc",
-                outline: "none",
-                fontSize: "14px",
-                transition: "border-color 0.3s ease",
-                backgroundColor: "transparent",
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: "200",
-                fontSize: "12px"
-              }}
             />
           </div>
 
-          <div
-            style={{
-              display: "flex", justifyContent: "space-between", marginBottom: "50px"
-            }}
-          >
+          <div className="sign-form-row">
             <label className="montserratText">Password:</label>
             <input  className="textfields"
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              style={{
-                border: "none",
-                borderBottom: "2px solid #ccc",
-                outline: "none",
-                fontSize: "14px",
-                transition: "border-color 0.3s ease",
-                backgroundColor: "transparent",
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: "200",
-                fontSize: "12px"
-              }}
             />
           </div>
-           <div style={{textAlign: "center" }}>
-             <button className="body_button" type="submit">Sign In</button>
- 
-           </div>
+
+          <button className="body_button sign-submit" type="submit">Sign In</button>
         </form>
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <div className="sign-toggle">
           <button
             onClick={onToggle}
-            style={{
-              background: "none",
-              border: "none",
-              color: "gold",
-              cursor: "pointer",
-              fontSize: "14px",
-              textDecoration: "underline",
-            }}
           >
             Don't have an account? Sign Up
           </button>

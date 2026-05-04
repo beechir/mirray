@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth"; 
 import { supabase } from "../supabaseClient";
+import "./Head.css";
 
 
 function Head() {
     const navigate = useNavigate();
-    const user = useAuth();
+
+    const { user, loading } = useAuth();
+
 
     const goToContact = () => {
         navigate("/contact");
@@ -23,71 +26,56 @@ function Head() {
     };
     const goToGallery = () => {
         navigate("/gallery");
-    }
+    };
+    const goToLogin = () => {
+      navigate("/Booking_not_connected");
+    };
 
 
      const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate("/"); 
   };
+
   
 
-  return <header style={{
-      position: "fixed",
-      top: 0,
-      width: "100%",
-      textAlign: "left",
-      padding: "1rem",
-      color: "white",
-      zIndex: 10,
-      userSelect: "none",
-    }}>   
-   <div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingLeft: "20px",
-    paddingRight: "14px",
-    width: "100%",
-  }}
->
+  return <header className="head-header">   
+   <div className="head-container">
   
   {/*Home */}
   <h1 onClick={goToHome}
-    className="glow-hover"
-    style={{
-      fontFamily: "Varino",
-      fontSize: "14px",
-    }}
+    className="glow-hover head-home"
   >
-    Home
+    الرئيسية
   </h1>
 
   {/*About, Gallery, Contact */}
-  <div style={{ display: "flex", gap: "60px" }}>
-    <h1 onClick={goToBooking} className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
-      Book Ur Session
+  <div className="head-right-section">
+    <h1 onClick={goToBooking} className="glow-hover head-link">
+      احجز جلستك
     </h1>
-    <h1 onClick={goToAbout} className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
-      About Us
+    <h1 onClick={goToAbout} className="glow-hover head-link">
+      من نحن
     </h1>
-    <h1 onClick={goToGallery}  className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
-      Gallery
+    <h1 onClick={goToGallery}  className="glow-hover head-link">
+      المعرض
     </h1>
-    <h1 onClick={goToContact} className="glow-hover" style={{ fontFamily: "Varino", fontSize: "14px" }}>
-      Contact
+    <h1 onClick={goToContact} className="glow-hover head-link">
+      تواصل معنا
     </h1>
     
-<div style={{ display: "flex", alignItems: "center" }}>
-  {user ? (
- <button className="button" onClick={handleLogout}>
-              Log Out
-            </button>  ) : (
-    <button className="button">Log In</button>
-  )}
-</div> 
- </div>
+    <div className="head-auth">
+      {user ? (
+        <button className="button" onClick={handleLogout}>
+          تسجيل الخروج
+        </button>  
+      ) : (
+        <button className="button" onClick={goToBooking}>
+          تسجيل الدخول
+          </button>
+      )}
+    </div> 
+  </div>
 </div>
   </header>
 }

@@ -15,8 +15,8 @@ function Footer() {
         userSelect: "none",
       }}
     >
-      <a5 style={{fontSize : "13px"}}>
-      &copy; {new Date().getFullYear()} Miray. All rights reserved.
+      <a5 style={{ fontSize: "13px" }}>
+        &copy; {new Date().getFullYear()} ميراي برودكشن . جميع الحقوق محفوظة.
       </a5>
       <div style={{ marginTop: "10px" }}>
         <a
@@ -31,7 +31,7 @@ function Footer() {
           />
         </a>
         <a
-          href="https://www.facebook.com"
+          href="https://www.facebook.com/share/1GQoemCrNK/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -42,7 +42,7 @@ function Footer() {
           />
         </a>
         <a
-          href="https://www.youtube.com"
+          href="https://www.youtube.com/@miray.production"
           target="_blank"
           rel="noopener noreferrer"
         >

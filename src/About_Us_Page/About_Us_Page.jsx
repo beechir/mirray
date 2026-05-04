@@ -14,10 +14,10 @@ function About_Us_Page() {
   const images = [about_us1, about_us2, about_us3, about_us4];
   const backgroundColors = ["#561415", "#697c83", "#cfb85d", "#d04f24"];
   const messages = [
-    "Mirray is a creative production house that offers innovative solutions in the entertainment industry",
-    "We specialize in creating captivating visual experiences that tell your story",
-    "Our team of experts brings your vision to life with passion and precision",
-    "Join us in crafting the next generation of entertainment content",
+    "ميراي هي مؤسسة رائدة في الإنتاج السمعي البصري .",
+    "نحن متخصصون في ابتكار تجارب بصرية آسرة تروي قصتكم بكل تفاصيلها.",
+    "فريقنا من الخبراء يحول رؤيتكم إلى واقع ملموس بشغف ودقة متناهية.",
+    "انضموا إلينا لنصنع معاً الجيل القادم من محتوى الترفي",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -105,7 +105,9 @@ function About_Us_Page() {
               opacity: isFading ? 0 : 1,
             }}
           >
-            <h4>{messages[currentIndex]}</h4>
+            <h4 style={{ fontFamily: "NotoKufiLocal" }}>
+              {messages[currentIndex]}
+            </h4>
           </div>
           <div
             onClick={handleNextClick}

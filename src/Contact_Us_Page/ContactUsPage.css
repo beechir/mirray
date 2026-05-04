@@ -1,0 +1,181 @@
+.contact-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 92px 7vw 58px;
+  color: #eae9e3;
+  direction: rtl;
+}
+
+.contact-content {
+  width: min(1040px, 100%);
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(360px, 1.15fr);
+  align-items: center;
+  gap: 44px;
+}
+
+.contact-copy {
+  text-align: right;
+}
+
+.contact-kicker {
+  margin: 0 0 16px;
+  color: #dab901;
+  font-family: "Varino", "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.contact-copy h1 {
+  margin: 0;
+  font-family: "shajara", "NotoKufiLocal", "Noto Kufi Arabic", serif;
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 400;
+  line-height: 0.95;
+  color: #fff8dc;
+  text-shadow:
+    0 0 14px rgba(218, 185, 1, 0.32),
+    0 0 34px rgba(218, 185, 1, 0.18);
+}
+
+.contact-copy p:last-child {
+  max-width: 480px;
+  margin: 16px 0 0;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 1.8;
+  color: rgba(234, 233, 227, 0.78);
+}
+
+.contact-social-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-card {
+  min-height: 102px;
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  color: #eae9e3;
+  text-decoration: none;
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.5);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: rgba(218, 185, 1, 0.72);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.34),
+    0 0 18px rgba(218, 185, 1, 0.28);
+  transform: translateY(-4px);
+}
+
+.contact-card-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(218, 185, 1, 0.45);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-card-icon img {
+  width: 34px;
+  max-height: 34px;
+  object-fit: contain;
+  filter: invert(100%);
+}
+
+.contact-card-content {
+  display: grid;
+  gap: 4px;
+}
+
+.contact-card-title {
+  color: #fff8dc;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.contact-card-text {
+  color: rgba(234, 233, 227, 0.7);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 1.55;
+}
+
+.contact-card-action {
+  min-width: 66px;
+  padding: 7px 12px;
+  color: #fff8dc;
+  border: 1px solid rgba(234, 233, 227, 0.72);
+  border-radius: 8px;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+.contact-card:hover .contact-card-action {
+  border-color: #dab901;
+  box-shadow: 0 0 14px rgba(218, 185, 1, 0.35);
+}
+
+@media (max-width: 900px) {
+  .contact-page {
+    align-items: flex-start;
+    padding-top: 96px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-copy p:last-child {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-page {
+    padding: 86px 22px 78px;
+  }
+
+  .contact-card {
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .contact-card-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .contact-card-icon img {
+    width: 32px;
+    max-height: 32px;
+  }
+
+  .contact-card-action {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+}

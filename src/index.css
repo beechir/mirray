@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
 :root {
   --card-gap: 100px;
 }
@@ -50,8 +51,12 @@ body,
 
 .glow-hover:hover {
   color: #574b02;
-  text-shadow: 0 0 5px #948003, 0 0 10px #948003, 0 0 20px #948003,
-    0 0 30px #948003, 0 0 40px #948003;
+  text-shadow:
+    0 0 5px #948003,
+    0 0 10px #948003,
+    0 0 20px #948003,
+    0 0 30px #948003,
+    0 0 40px #948003;
   transform: scale(1.05);
 }
 
@@ -106,9 +111,15 @@ body,
 .button:hover {
   color: #fff8dc;
   background-color: transparent;
-  text-shadow: 0 0 8px #dab901db, 0 0 12px #dab902db, 0 0 20px #d9ae02dc;
+  text-shadow:
+    0 0 8px #dab901db,
+    0 0 12px #dab902db,
+    0 0 20px #d9ae02dc;
 
-  box-shadow: 0 0 5px #dab901db, 0 0 10px #d8ad02dc, 0 0 15px #de9c01e1,
+  box-shadow:
+    0 0 5px #dab901db,
+    0 0 10px #d8ad02dc,
+    0 0 15px #de9c01e1,
     0 0 20px #dbb001dc;
 
   transform: scale(1.05);
@@ -117,6 +128,7 @@ body,
 .about_us_div {
   border: #eae9e3;
   border-radius: 2px;
+  font-family: "Varela Round", sans-serif;
 }
 
 /* fields style*/
@@ -196,9 +208,15 @@ input.textfields:focus-visible {
 .body_button:hover {
   color: #fff8dc;
   background-color: transparent;
-  text-shadow: 0 0 8px #dab901db, 0 0 12px #dab902db, 0 0 20px #d9ae02dc;
+  text-shadow:
+    0 0 8px #dab901db,
+    0 0 12px #dab902db,
+    0 0 20px #d9ae02dc;
 
-  box-shadow: 0 0 5px #dab901db, 0 0 10px #d8ad02dc, 0 0 15px #de9c01e1,
+  box-shadow:
+    0 0 5px #dab901db,
+    0 0 10px #d8ad02dc,
+    0 0 15px #de9c01e1,
     0 0 20px #dbb001dc;
 
   transform: scale(1.05);
@@ -253,3 +271,20 @@ input.textfields:focus-visible {
   font-style: normal;
   font-size: 40px;
 }
+
+@font-face {
+  font-family: "NotoKufiLocal";
+  src: url("./assets/NotoKufiArabic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "shajara";
+  src: url("./assets/SC_SHARJAH REGULAR.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+

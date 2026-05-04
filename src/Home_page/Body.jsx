@@ -1,48 +1,40 @@
 import twopac from "../assets/2pac.png";
 import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import "./Body.css";
+
 function Body() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const mainButtonText = user ? "تواصل معنا" : "تسجيل الدخول";
+  const mainButtonRoute = user ? "/contact" : "/Booking";
+
   return (
-   <div
-  style={{
-    position: "relative",
-    width: "100vw",
-    height: "100vh",
-    overflow: "hidden",
-    zIndex: 0,
-    userSelect: "none",
-  }}
->
+   <div className="body-container">
   {/* 2Pac image */}
   <img
     src={twopac}
     alt="2Pac"
-    style={{
-      position: "absolute",
-      bottom: "0",
-      right: "0",
-      width: "100vw", 
-      height: "auto",
-      pointerEvents: "none",
-      zIndex: -1,
-      userSelect: "none",
-    }}
+    className="body-image-2pac"
   />
 
   {/* mirray Logo*/}
   <img
     src={logo}
     alt="Logo"
-    style={{
-      position: "absolute",
-      top: "35vh",     
-      left: "10vw", 
-      width: "30vw", 
-      height: "auto",
-      pointerEvents: "none",
-      zIndex: -1,
-      userSelect: "none",
-    }}
+    className="body-logo"
   />
+
+  <div className="body-actions">
+    <button className="button body-action-button" onClick={() => navigate(mainButtonRoute)}>
+      {mainButtonText}
+    </button>
+    <span className="body-action-separator">او</span>
+    <button className="button body-action-button" onClick={() => navigate("/gallery")}>
+      شاهد اعمالنا
+    </button>
+  </div>
   {/*<h1
   style={{
     position: "absolute",

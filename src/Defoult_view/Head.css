@@ -1,0 +1,89 @@
+.head-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  color: white;
+  z-index: 10;
+  user-select: none;
+  /* background-color: rgba(0,0,0,0.5); Optional: Add background if needed for visibility */
+}
+
+.head-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 14px;
+  width: 100%;
+}
+
+.head-home {
+  font-family: "shajara";
+  font-size: 30px;
+  margin: 0;
+}
+
+.head-right-section {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.head-link {
+  font-family: "shajara";
+  font-size: 20px;
+  margin: 0;
+}
+
+.head-auth {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .head-right-section {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .head-header {
+    padding: 0.5rem;
+  }
+
+  .head-container {
+    flex-direction: column; /* Stack Home on top of Links on mobile */
+    gap: 15px;
+    padding: 5px;
+  }
+
+  .head-right-section {
+    gap: 15px; /* Smaller gap */
+    width: 100%;
+    justify-content: space-around; /* Distribute evenly */
+    flex-wrap: wrap;
+  }
+
+  .head-home {
+    font-size: 12px;
+  }
+
+  .head-link {
+    font-size: 10px; /* Significantly smaller to fit */
+  }
+
+  /* Adjust button size if necessary - inheriting from global currently */
+}
+
+@media (max-width: 480px) {
+  .head-right-section {
+    gap: 10px;
+  }
+  
+  .head-link {
+    font-size: 9px;
+  }
+}

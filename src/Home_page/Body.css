@@ -1,0 +1,79 @@
+.body-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  user-select: none;
+}
+
+.body-image-2pac {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: auto;
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+}
+
+.body-logo {
+  position: absolute;
+  top: 35vh;
+  left: 10vw;
+  width: 30vw;
+  height: auto;
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+}
+
+.body-actions {
+  position: absolute;
+  top: 58vh;
+  left: 10vw;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  z-index: 1;
+  direction: rtl;
+}
+
+.body-action-button {
+  min-width: 140px;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 14px;
+}
+
+.body-action-separator {
+  color: #eae9e3;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Mobile overrides */
+@media (max-width: 768px) {
+  .body-logo {
+    width: 60vw; /* Increased from 30vw for visibility on mobile */
+  }
+
+  .body-actions {
+    top: 52vh;
+    left: 8vw;
+    width: 70vw;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .body-action-button {
+    min-width: 130px;
+  }
+  
+  .body-image-2pac {
+     width: 110vw; /* Slightly larger than 100vw as requested */
+  }
+}

@@ -3,6 +3,7 @@ import hekma1 from "../assets/hekma1.png";
 import hekma2 from "../assets/hekma2.png";
 import hekma3 from "../assets/hekma3.png";
 import hekma4 from "../assets/hekma4.png";
+import "./Booking.css";
 
 const TRANSITION_DURATION = 2000; // fade
 const CYCLE_DURATION = 10000; //between transitions
@@ -35,31 +36,13 @@ function Hekma() {
   }, []);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "40vw",
-        height: "80vh",
-        overflow: "hidden",
-        zIndex: 0,
-        userSelect: "none",
-      }}
-    >
+    <div className="hekma-container">
       <img
         src={images[currentIndex]}
         alt={`hekma${currentIndex + 1}`}
+        className="hekma-image"
         style={{
-          position: "absolute",
-          top: "10%",
-          left: "30%",
-          transform: "translateX(-50%)",
-          width: "70vw",
-          height: "auto",
-          pointerEvents: "none",
-          userSelect: "none",
-          transition: `opacity ${TRANSITION_DURATION}ms ease-in-out`,
           opacity: isFading ? 0 : 1,
-
         }}
       />
     </div>
