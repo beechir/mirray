@@ -9,9 +9,9 @@ function Background({ bgColor = "#080911" }) {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        height: "100vh",
+        minHeight: "100vh",
         width: "100%",
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         zIndex: -1, // Ensures the background is behind other content
