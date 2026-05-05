@@ -1,24 +1,15 @@
 import insta_icon from "../assets/insta_icon.png";
 import facebook_icon from "../assets/facebook_icon.png";
 import youtube_icon from "../assets/youtube_icon.png";
+import "./FooterComponent.css";
 
 function Footer() {
   return (
-    <footer
-      style={{
-        position: "fixed",
-        bottom: 0,
-        width: "100%",
-        textAlign: "center",
-        color: "white",
-        zIndex: 10,
-        userSelect: "none",
-      }}
-    >
-      <a5 style={{ fontSize: "13px" }}>
+    <footer className="site-footer">
+      <small>
         &copy; {new Date().getFullYear()} ميراي برودكشن . جميع الحقوق محفوظة.
-      </a5>
-      <div style={{ marginTop: "10px" }}>
+      </small>
+      <div className="site-footer-links">
         <a
           href="https://www.instagram.com/miray.production?igsh=MTdjOHVoMnBkMWdvcw%3D%3D"
           target="_blank"
@@ -27,7 +18,7 @@ function Footer() {
           <img
             src={insta_icon}
             alt="Instagram"
-            style={{ width: "15px", margin: "0 10px", filter: "invert(100%)" }}
+            className="site-footer-instagram"
           />
         </a>
         <a
@@ -38,7 +29,7 @@ function Footer() {
           <img
             src={facebook_icon}
             alt="Facebook"
-            style={{ width: "15px", margin: "0 10px", filter: "invert(100%)" }}
+            className="site-footer-facebook"
           />
         </a>
         <a
@@ -49,11 +40,12 @@ function Footer() {
           <img
             src={youtube_icon}
             alt="YouTube"
-            style={{ width: "19px", margin: "0 10px", filter: "invert(100%)" }}
+            className="site-footer-youtube"
           />
         </a>
       </div>
     </footer>
   );
 }
+
 export default Footer;

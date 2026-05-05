@@ -13,8 +13,9 @@ body,
 #root /* Target the root div where your React app is mounted */ {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+  overflow-x: hidden;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -100,7 +101,7 @@ body,
   color: #eae9e3;
   background-color: transparent;
   border: 2px solid white;
-  padding: 12px px;
+  padding: 12px 24px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
@@ -135,7 +136,7 @@ body,
 .montserratText {
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /*input text style*/
@@ -149,7 +150,6 @@ body,
   background: transparent !important;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
-  font-size: 12px;
 }
 
 .textfields:focus {
@@ -193,7 +193,7 @@ input.textfields:focus-visible {
   color: #eae9e3;
   background-color: transparent;
   border: 2px solid white;
-  padding: 12px px;
+  padding: 12px 24px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
@@ -285,6 +285,5 @@ input.textfields:focus-visible {
   font-weight: 400;
   font-style: normal;
 }
-
 
 

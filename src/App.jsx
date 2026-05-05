@@ -7,6 +7,7 @@ import HomePage from "./Home_page/HomePage.jsx";
 import Booking_not_connected from "./Booking/Booking_not_connected.jsx";
 import Booking_connected from "./Booking/Booking_connected.jsx";
 import Complete_profile from "./Booking/Complete_profile.jsx";
+import CompleteProfile from "./Profile/complete_profile.jsx";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Booking_connected" element={<Booking_connected/>}/>
         <Route path="/Booking_not_connected" element={<Booking_not_connected/>}/>
         <Route path="/Complete_profile" element={<Complete_profile/>}/>
+        <Route path="/complete-profile" element={<CompleteProfile/>}/>
 
 
 

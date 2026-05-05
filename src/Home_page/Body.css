@@ -1,7 +1,7 @@
 .body-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   overflow: hidden;
   z-index: 0;
   user-select: none;
@@ -11,7 +11,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 100vw;
+  width: min(100vw, 1500px);
   height: auto;
   pointer-events: none;
   z-index: -1;
@@ -20,9 +20,9 @@
 
 .body-logo {
   position: absolute;
-  top: 35vh;
-  left: 10vw;
-  width: 30vw;
+  top: clamp(210px, 35vh, 360px);
+  left: clamp(32px, 10vw, 150px);
+  width: clamp(250px, 30vw, 480px);
   height: auto;
   pointer-events: none;
   z-index: -1;
@@ -31,9 +31,9 @@
 
 .body-actions {
   position: absolute;
-  top: 58vh;
-  left: 10vw;
-  width: 30vw;
+  top: clamp(390px, 58vh, 560px);
+  left: clamp(32px, 10vw, 150px);
+  width: clamp(270px, 30vw, 500px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,14 +57,22 @@
 
 /* Mobile overrides */
 @media (max-width: 768px) {
+  .body-container {
+    min-height: 100svh;
+  }
+
   .body-logo {
-    width: 60vw; /* Increased from 30vw for visibility on mobile */
+    top: 24svh;
+    left: 50%;
+    width: min(68vw, 330px);
+    transform: translateX(-50%);
   }
 
   .body-actions {
-    top: 52vh;
-    left: 8vw;
-    width: 70vw;
+    top: 46svh;
+    left: 50%;
+    width: min(86vw, 360px);
+    transform: translateX(-50%);
     flex-wrap: wrap;
     gap: 12px;
   }
@@ -74,6 +82,22 @@
   }
   
   .body-image-2pac {
-     width: 110vw; /* Slightly larger than 100vw as requested */
+     width: 175vw;
+     right: -46vw;
+  }
+}
+
+@media (max-width: 430px) {
+  .body-actions {
+    top: 44svh;
+    flex-direction: column;
+  }
+
+  .body-action-button {
+    width: 100%;
+  }
+
+  .body-action-separator {
+    line-height: 1;
   }
 }

@@ -1,137 +1,90 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Default_view from "../Defoult_view/Default_view.jsx";
 import about_us1 from "../assets/about_us1.jpg";
 import about_us2 from "../assets/about_us2.jpg";
 import about_us3 from "../assets/about_us3.jpeg";
 import about_us4 from "../assets/about_us4.jpeg";
 import next_icon from "../assets/next_icon.png";
+import "./About_Us_Page.css";
 
-// Timing constants (in milliseconds)
-const TRANSITION_DURATION = 1000; // 5 seconds for fade transition
-const CYCLE_DURATION = 15000; // 15 seconds between transitions
+const TRANSITION_DURATION = 1000;
+const CYCLE_DURATION = 15000;
+const ABOUT_IMAGES = [about_us1, about_us2, about_us3, about_us4];
+const BACKGROUND_COLORS = ["#561415", "#697c83", "#cfb85d", "#d04f24"];
+const ABOUT_MESSAGES = [
+  "ميراي هي مؤسسة رائدة في الإنتاج السمعي البصري.",
+  "نحن متخصصون في ابتكار تجارب بصرية آسرة تروي قصتكم بكل تفاصيلها.",
+  "فريقنا من الخبراء يحول رؤيتكم إلى واقع ملموس بشغف ودقة متناهية.",
+  "انضموا إلينا لنصنع معا الجيل القادم من محتوى الترفيه.",
+];
 
 function About_Us_Page() {
-  const images = [about_us1, about_us2, about_us3, about_us4];
-  const backgroundColors = ["#561415", "#697c83", "#cfb85d", "#d04f24"];
-  const messages = [
-    "ميراي هي مؤسسة رائدة في الإنتاج السمعي البصري .",
-    "نحن متخصصون في ابتكار تجارب بصرية آسرة تروي قصتكم بكل تفاصيلها.",
-    "فريقنا من الخبراء يحول رؤيتكم إلى واقع ملموس بشغف ودقة متناهية.",
-    "انضموا إلينا لنصنع معاً الجيل القادم من محتوى الترفي",
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
+  const startCycle = useCallback(() => {
+    setIsFading(true);
+
+    window.fadeTimeout = setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
+      setIsFading(false);
+      window.cycleTimeout = setTimeout(startCycle, CYCLE_DURATION);
+    }, TRANSITION_DURATION);
+  }, []);
+
   const handleNextClick = () => {
-    // Clear any existing timeouts
     if (window.fadeTimeout) clearTimeout(window.fadeTimeout);
     if (window.cycleTimeout) clearTimeout(window.cycleTimeout);
-
-    // Start the transition
-    setIsFading(true);
-
-    // After transition duration, switch image and fade-in
-    window.fadeTimeout = setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-      setIsFading(false);
-
-      // Schedule next cycle after full visible duration
-      window.cycleTimeout = setTimeout(startCycle, CYCLE_DURATION);
-    }, TRANSITION_DURATION);
-  };
-
-  const startCycle = () => {
-    // Start fade-out
-    setIsFading(true);
-
-    // After transition duration, switch image and fade-in
-    window.fadeTimeout = setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-      setIsFading(false);
-
-      // Schedule next cycle after full visible duration
-      window.cycleTimeout = setTimeout(startCycle, CYCLE_DURATION);
-    }, TRANSITION_DURATION);
+    startCycle();
   };
 
   useEffect(() => {
     document.title = "About Us | Miray";
-
-    // First image is visible for cycle duration before any fade starts
     window.cycleTimeout = setTimeout(startCycle, CYCLE_DURATION);
 
-    // Cleanup on unmount
     return () => {
       if (window.fadeTimeout) clearTimeout(window.fadeTimeout);
       if (window.cycleTimeout) clearTimeout(window.cycleTimeout);
     };
-  }, []);
+  }, [startCycle]);
 
   return (
-    <>
-      <Default_view bgColor={backgroundColors[currentIndex]} />
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          height: "100vh",
-          padding: "0px 100px",
-          gap: "50px",
-        }}
-      >
-        <img
-          src={images[currentIndex]}
-          alt="About Us"
-          style={{
-            marginRight: "40px",
-            maxHeight: "45vh",
-            height: "auto",
-            maxWidth: "100%",
-            transition: `opacity ${TRANSITION_DURATION}ms ease-in-out`,
-            opacity: isFading ? 0 : 1,
-          }}
-        />
-
-        <div>
-          <div
-            className="about_us_div"
+    <Default_view bgColor={BACKGROUND_COLORS[currentIndex]}>
+      <section className="about-page">
+        <div className="about-content">
+          <img
+            src={ABOUT_IMAGES[currentIndex]}
+            alt="About Miray"
+            className="about-image"
             style={{
-              color: "white",
-              maxWidth: "40%",
-              transition: `opacity ${TRANSITION_DURATION}ms ease-in-out`,
               opacity: isFading ? 0 : 1,
+              transition: `opacity ${TRANSITION_DURATION}ms ease-in-out`,
             }}
-          >
-            <h4 style={{ fontFamily: "NotoKufiLocal" }}>
-              {messages[currentIndex]}
-            </h4>
-          </div>
-          <div
-            onClick={handleNextClick}
-            style={{
-              cursor: "pointer",
-              transition: "transform 0.3s ease",
-              ":hover": {
-                transform: "scale(1.1)",
-              },
-            }}
-          >
-            <img
+          />
+
+          <div className="about-copy">
+            <div
+              className="about_us_div about-message"
               style={{
-                width: "60px",
-                transition: "transform 0.3s ease",
-                filter: "invert(100%)",
+                opacity: isFading ? 0 : 1,
+                transition: `opacity ${TRANSITION_DURATION}ms ease-in-out`,
               }}
-              src={next_icon}
-              alt="Next"
-            />
+            >
+              <h4>{ABOUT_MESSAGES[currentIndex]}</h4>
+            </div>
+
+            <button
+              className="about-next"
+              type="button"
+              aria-label="Next about slide"
+              onClick={handleNextClick}
+            >
+              <img src={next_icon} alt="" />
+            </button>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+    </Default_view>
   );
 }
 

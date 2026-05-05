@@ -1,0 +1,121 @@
+.profile-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 7vw 74px;
+  color: #eae9e3;
+  direction: rtl;
+}
+
+.profile-panel {
+  width: min(760px, 100%);
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  padding: 26px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.56);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.profile-heading {
+  margin-bottom: 22px;
+  text-align: right;
+}
+
+.profile-heading p {
+  margin: 0 0 8px;
+  color: #dab901;
+  font-family: "Varino", "Montserrat", sans-serif;
+  font-size: 13px;
+}
+
+.profile-heading h1 {
+  margin: 0;
+  color: #fff8dc;
+  font-family: "shajara", "NotoKufiLocal", "Noto Kufi Arabic", serif;
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow:
+    0 0 14px rgba(218, 185, 1, 0.32),
+    0 0 34px rgba(218, 185, 1, 0.18);
+}
+
+.profile-heading span,
+.profile-loading,
+.profile-message {
+  color: rgba(234, 233, 227, 0.76);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.profile-field {
+  display: grid;
+  gap: 8px;
+}
+
+.profile-field label {
+  color: rgba(234, 233, 227, 0.78);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+}
+
+.profile-field input {
+  width: 100%;
+  color: #eae9e3;
+  padding: 8px 0;
+}
+
+.profile-field input:disabled {
+  color: rgba(234, 233, 227, 0.52);
+  cursor: not-allowed;
+}
+
+.profile-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #dab901;
+}
+
+.profile-submit {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(260px, 100%);
+  margin-top: 6px;
+}
+
+.profile-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+@media (max-width: 860px) {
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .profile-page {
+    align-items: flex-start;
+    padding: 116px 18px 82px;
+  }
+
+  .profile-panel {
+    padding: 22px;
+  }
+
+}

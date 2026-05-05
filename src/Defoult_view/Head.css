@@ -3,11 +3,11 @@
   top: 0;
   width: 100%;
   text-align: left;
-  padding: 1rem;
+  padding: 14px 18px;
   color: white;
-  z-index: 10;
+  z-index: 30;
   user-select: none;
-  /* background-color: rgba(0,0,0,0.5); Optional: Add background if needed for visibility */
+  background: linear-gradient(to bottom, rgba(8, 9, 17, 0.78), rgba(8, 9, 17, 0));
 }
 
 .head-container {
@@ -27,7 +27,7 @@
 
 .head-right-section {
   display: flex;
-  gap: 60px;
+  gap: clamp(18px, 4vw, 60px);
   align-items: center;
 }
 
@@ -37,53 +37,149 @@
   margin: 0;
 }
 
-.head-auth {
+.head-settings {
+  position: relative;
   display: flex;
   align-items: center;
 }
 
+.head-settings-button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: #eae9e3;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.5);
+  border: 1px solid rgba(234, 233, 227, 0.72);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.head-settings-button:hover {
+  color: #fff8dc;
+  border-color: #dab901;
+  box-shadow:
+    0 0 5px #dab901db,
+    0 0 10px #d8ad02dc,
+    0 0 15px #de9c01e1;
+  transform: scale(1.05);
+}
+
+.head-settings-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 190px;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  direction: rtl;
+  text-align: right;
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.9);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(218, 185, 1, 0.16);
+  backdrop-filter: blur(8px);
+}
+
+.head-settings-menu button {
+  width: 100%;
+  padding: 10px 12px;
+  color: #eae9e3;
+  background-color: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+  text-align: right;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.head-settings-menu button:hover {
+  color: #fff8dc;
+  background-color: rgba(218, 185, 1, 0.14);
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
+  .head-header {
+    padding: 12px 14px;
+  }
+
   .head-right-section {
-    gap: 30px;
+    gap: 20px;
+  }
+
+  .head-link {
+    font-size: 17px;
   }
 }
 
 @media (max-width: 768px) {
   .head-header {
-    padding: 0.5rem;
+    padding: 8px 10px;
+    background: rgba(8, 9, 17, 0.72);
+    backdrop-filter: blur(8px);
   }
 
   .head-container {
     flex-direction: column; /* Stack Home on top of Links on mobile */
-    gap: 15px;
+    gap: 8px;
     padding: 5px;
   }
 
   .head-right-section {
-    gap: 15px; /* Smaller gap */
+    gap: 10px;
     width: 100%;
-    justify-content: space-around; /* Distribute evenly */
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .head-home {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .head-link {
-    font-size: 10px; /* Significantly smaller to fit */
+    font-size: 13px;
   }
 
   /* Adjust button size if necessary - inheriting from global currently */
+  .head-settings-button {
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+
+  .head-settings-menu {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 @media (max-width: 480px) {
+  .head-container {
+    gap: 6px;
+  }
+
   .head-right-section {
-    gap: 10px;
+    gap: 8px;
   }
   
   .head-link {
-    font-size: 9px;
+    font-size: 11px;
+  }
+
+  .head-settings-menu {
+    min-width: 170px;
   }
 }

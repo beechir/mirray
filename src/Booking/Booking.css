@@ -3,9 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   padding: 96px 7vw 66px;
   box-sizing: border-box;
   color: #eae9e3;
@@ -184,7 +184,7 @@
 /* --- Mobile Responsive Styles (Horizontal Forced) --- */
 @media (max-width: 1024px) {
   .booking-page {
-    padding: 96px 22px 78px;
+    padding: 112px 18px 78px;
     align-items: flex-start;
   }
 
