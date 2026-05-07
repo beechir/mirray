@@ -3,9 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap");
 :root {
   --card-gap: 100px;
+  --ui-scale: clamp(0.4, calc(100vw / 1440), 0.5);
 }
 
 html,
@@ -25,6 +26,72 @@ body,
 /* It's also a good practice to ensure the #root div fills the body */
 #root {
   min-height: 100vh; /* Ensure it takes at least the full viewport height */
+}
+
+.page-transition {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.page-transition.fadeIn {
+  animation: pageFadeIn 420ms ease-out forwards;
+}
+
+.page-transition.fadeOut {
+  animation: pageFadeOut 240ms ease-in forwards;
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.992);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes pageFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.99);
+  }
+}
+
+/* Keep desktop structure while shrinking proportionally on smaller windows. */
+.head-header,
+.site-footer,
+.booking-page,
+.reservation-page,
+.about-page,
+.contact-page,
+.gallery-page,
+.profile-page,
+.backoffice-page,
+.body-container {
+  transform: scale(var(--ui-scale));
+  transform-origin: top center;
+  width: calc(100% / var(--ui-scale));
+}
+
+/* Fluid typography and controls for better responsiveness. */
+html {
+  font-size: clamp(12px, 0.82vw, 16px);
+}
+
+.body_button,
+.button {
+  font-size: clamp(12px, 0.95rem, 16px);
+  padding: clamp(10px, 0.75rem, 12px) clamp(16px, 1.2rem, 24px);
 }
 
 /* Optional but highly recommended for consistent box model behavior */
@@ -286,4 +353,9 @@ input.textfields:focus-visible {
   font-style: normal;
 }
 
-
+/* On phones, keep the same design language without over-shrinking. */
+@media (max-width: 768px) {
+  :root {
+    --ui-scale: 0.96;
+  }
+}

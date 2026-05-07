@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Sign_up_form from "../Booking/Sign_up_form.jsx";
 import Sign_in_form from "../Booking/Sign_in_form.jsx";
-import Hekma from "../Booking/Hekma.jsx" ;
+import Hekma from "../Booking/Hekma.jsx";
+import { motion } from "framer-motion";
 import "./Booking.css";
 
 function Booking_not_connected() {
@@ -27,30 +28,54 @@ function Booking_not_connected() {
   };
 
   return (
-    <div className="booking-page">
+    <motion.div
+      className="booking-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="booking-content">
-        <div className="booking-form-panel">
-          <div className="booking-form-copy">
+        <motion.div
+          className="booking-form-panel"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.div
+            className="booking-form-copy"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <p>Miray Production</p>
             <h1>{showSignUp ? "انشاء حساب" : "تسجيل الدخول"}</h1>
-          </div>
+          </motion.div>
 
-          {showSignUp ? (
-            <div className={isTransitioning ? "form-slide-up" : ""}>
+          <motion.div
+            className={isTransitioning ? "form-slide-up" : ""}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            key={showSignUp ? "signup" : "signin"} // Force re-render animation
+          >
+            {showSignUp ? (
               <Sign_up_form onToggle={toggleToSignIn} />
-            </div>
-          ) : (
-            <div className={isTransitioning ? "form-slide-up-from-bottom" : ""}>
+            ) : (
               <Sign_in_form onToggle={toggleToSignUp} />
-            </div>
-          )}
-        </div>
-        
-        <div className="hekma-wrapper">
+            )}
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="hekma-wrapper"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <Hekma />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

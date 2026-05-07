@@ -75,6 +75,12 @@ function CompleteProfile() {
     setMessage("");
 
     try {
+      if (!formData.phone_number.trim()) {
+        setMessage("رقم الهاتف ضروري لإكمال الملف الشخصي.");
+        setSaving(false);
+        return;
+      }
+
       const {
         data: { user },
         error: userError,
@@ -83,21 +89,21 @@ function CompleteProfile() {
       if (userError || !user) throw userError || new Error("No user found");
 
       const profilePayload = {
+        id: user.id,
         email: user.email,
-        first_name: formData.first_name,
-        last_name: formData.last_name,
-        user_name: formData.user_name,
-        job: formData.job,
-        adress: formData.adress,
-        phone_number: formData.phone_number,
+        first_name: formData.first_name.trim(),
+        last_name: formData.last_name.trim(),
+        user_name: formData.user_name.trim(),
+        job: formData.job.trim(),
+        adress: formData.adress.trim(),
+        phone_number: formData.phone_number.trim(),
         birth_date: formData.birth_date || null,
         updated_at: new Date().toISOString(),
       };
 
       const { error } = await supabase
         .from("profiles")
-        .update(profilePayload)
-        .eq("id", user.id);
+        .upsert(profilePayload, { onConflict: "id" });
 
       if (error) throw error;
 
@@ -159,7 +165,7 @@ function CompleteProfile() {
 
               <div className="profile-field">
                 <label>رقم الهاتف</label>
-                <input className="textfields" type="tel" name="phone_number" value={formData.phone_number} onChange={handleChange} />
+                <input className="textfields" type="tel" name="phone_number" value={formData.phone_number} onChange={handleChange} required />
               </div>
 
               <div className="profile-field">

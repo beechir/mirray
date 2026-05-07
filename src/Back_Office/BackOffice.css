@@ -1,0 +1,296 @@
+.backoffice-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 106px 5vw 86px;
+  color: #eae9e3;
+  background-color: #080911;
+  background-image: url("../assets/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backoffice-shell {
+  width: min(1240px, 100%);
+  display: grid;
+  gap: 24px;
+}
+
+.backoffice-heading {
+  text-align: right;
+  direction: rtl;
+}
+
+.backoffice-heading p {
+  margin: 0 0 8px;
+  color: #dab901;
+  font-family: "Varino", "Montserrat", sans-serif;
+  font-size: 13px;
+}
+
+.backoffice-heading h1 {
+  margin: 0;
+  color: #fff8dc;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-shadow:
+    0 0 14px rgba(218, 185, 1, 0.26),
+    0 0 28px rgba(218, 185, 1, 0.14);
+}
+
+.backoffice-heading span,
+.backoffice-empty,
+.backoffice-message {
+  color: rgba(234, 233, 227, 0.76);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.backoffice-panel {
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.56);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.backoffice-tabs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 18px;
+  direction: rtl;
+}
+
+.backoffice-tab {
+  padding: 9px 14px;
+  color: #eae9e3;
+  background: transparent;
+  border: 1px solid rgba(234, 233, 227, 0.42);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.backoffice-tab:hover {
+  border-color: #dab901;
+  box-shadow: 0 0 10px rgba(218, 185, 1, 0.24);
+}
+
+.backoffice-tab-active {
+  border-color: #dab901;
+  box-shadow: 0 0 14px rgba(218, 185, 1, 0.28);
+  color: #fff8dc;
+}
+
+.backoffice-login {
+  width: min(430px, 100%);
+  justify-self: center;
+  display: grid;
+  gap: 18px;
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.72);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  direction: rtl;
+}
+
+.backoffice-login-copy h2,
+.backoffice-login-copy p {
+  margin: 0;
+}
+
+.backoffice-login-copy h2 {
+  color: #fff8dc;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.backoffice-login-copy p,
+.backoffice-login label {
+  color: rgba(234, 233, 227, 0.76);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.backoffice-login label {
+  display: grid;
+  gap: 8px;
+}
+
+.backoffice-login input {
+  width: 100%;
+  padding: 11px 12px;
+  color: #eae9e3;
+  border: 1px solid rgba(234, 233, 227, 0.36);
+  border-radius: 8px;
+  outline: none;
+  background-color: rgba(8, 9, 17, 0.52);
+  font-family: "Montserrat", sans-serif;
+}
+
+.backoffice-login input:focus {
+  border-color: #dab901;
+  box-shadow: 0 0 14px rgba(218, 185, 1, 0.24);
+}
+
+.backoffice-login .body_button {
+  justify-self: center;
+}
+
+.backoffice-panel h2,
+.backoffice-panel p {
+  margin-top: 0;
+}
+
+.backoffice-message {
+  color: #dab901;
+}
+
+.backoffice-table {
+  display: grid;
+  gap: 10px;
+}
+
+.backoffice-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(220px, 1.35fr) minmax(150px, 0.75fr) 150px 160px;
+  gap: 16px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid rgba(234, 233, 227, 0.18);
+  border-radius: 8px;
+  background-color: rgba(8, 9, 17, 0.4);
+}
+
+.backoffice-row-head {
+  color: #dab901;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.backoffice-row strong,
+.backoffice-row small {
+  display: block;
+}
+
+.backoffice-row strong {
+  color: #fff8dc;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.backoffice-row small,
+.backoffice-row p {
+  color: rgba(234, 233, 227, 0.72);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.backoffice-row p {
+  margin: 8px 0 0;
+}
+
+.backoffice-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.backoffice-actions button {
+  padding: 9px 12px;
+  color: #eae9e3;
+  background-color: transparent;
+  border: 1px solid rgba(234, 233, 227, 0.46);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.backoffice-actions button:hover:not(:disabled) {
+  color: #fff8dc;
+  border-color: #dab901;
+  box-shadow: 0 0 14px rgba(218, 185, 1, 0.28);
+}
+
+.backoffice-actions button:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+}
+
+.backoffice-users-table {
+  display: grid;
+  gap: 10px;
+}
+
+.backoffice-users-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.2fr) minmax(120px, 0.7fr) minmax(170px, 0.8fr) minmax(160px, 0.7fr);
+  gap: 16px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid rgba(234, 233, 227, 0.18);
+  border-radius: 8px;
+  background-color: rgba(8, 9, 17, 0.4);
+}
+
+.backoffice-status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid rgba(72, 194, 116, 0.78);
+  border-radius: 8px;
+  color: #fff8dc;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.backoffice-status-badge.blocked {
+  border-color: rgba(230, 88, 88, 0.78);
+}
+
+.backoffice-status-badge.active {
+  border-color: rgba(72, 194, 116, 0.78);
+}
+
+@media (max-width: 1040px) {
+  .backoffice-row,
+  .backoffice-row-head,
+  .backoffice-users-row {
+    grid-template-columns: 1fr;
+  }
+
+  .backoffice-row-head {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .backoffice-page {
+    padding: 122px 18px 86px;
+  }
+
+  .backoffice-panel {
+    padding: 18px;
+  }
+}

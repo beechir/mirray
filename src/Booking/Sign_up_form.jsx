@@ -1,19 +1,12 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./Booking.css";
-
 
 function Sign_up_form({ onToggle }) {
   const [formData, setFormData] = useState({
-   /* first_name: "",*/
-    /*last_name: "",*/
-   /* user_name: "",*/
-   /* job: "",*/
-   /* adress: "",*/
-   /* phone_number: "",*/
     email: "",
-   /* birth_date: "",*/
     password: "",
     confirm_password: "",
   });
@@ -27,47 +20,25 @@ function Sign_up_form({ onToggle }) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    //Check password confirmation before hitting Supabase
     if (formData.password !== formData.confirm_password) {
       alert("Passwords do not match!");
-      return; // stop here
+      return;
     }
 
     try {
-      // 1️⃣ Create account in Supabase Auth
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
-         emailRedirectTo: "http://localhost:5173/Complete_profile"
-  }
+          emailRedirectTo: `${window.location.origin}/complete-profile`,
+        },
       });
 
       if (error) throw error;
+      if (!data.user) throw new Error("No user returned from signUp");
 
-      const user = data.user;
-      if (!user) throw new Error("No user returned from signUp");
-
-      // 2️⃣ (Optional) Insert extra profile data
-      // await supabase.from("profiles").insert([
-      //   {
-      //     id: user.id,
-      //     first_name: formData.first_name,
-      //     last_name: formData.last_name,
-      //     user_name: formData.user_name,
-      //     job: formData.job,
-      //     adress: formData.adress,
-      //     phone_number: formData.phone_number,
-      //     email: formData.email,
-      //     birth_date: formData.birth_date,
-      //   },
-      // ]);
-
-      // 3️⃣ Redirect (even if email needs confirmation)
-      navigate("/Booking_connected", {
-        state: { name: formData.first_name },
-      });
-
+      await supabase.auth.signOut();
+      navigate("/confirm-email", { state: { email: formData.email } });
     } catch (err) {
       console.error(err.message);
       alert("Error: " + err.message);
@@ -75,69 +46,96 @@ function Sign_up_form({ onToggle }) {
   }
 
   return (
-    <div className="sign-form-wrapper">
+    <motion.div
+      className="sign-form-wrapper"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="sign-form-box">
-        <form className="sign-form" onSubmit={handleSubmit}>
-         {/* <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" ,  }}>
-            <label className="montserratText">First Name:</label>
-            <input className="textfields" type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
-          </div>*/}
-
-         {/* <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
-            <label className="montserratText">Last Name:</label>
-            <input className="textfields" type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
-          </div>*/}
-
-         {/* <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
-            <label className="montserratText" >Username:</label>
-            <input className="textfields" type="text" name="user_name" value={formData.user_name} onChange={handleChange} />
-          </div>*/}
-
-         {/* <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
-            <label className="montserratText">Job:</label>
-            <input className="textfields" type="text" name="job" value={formData.job} onChange={handleChange} />
-          </div>*/}
-
-         {/* <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
-            <label className="montserratText">Address:</label>
-            <input className="textfields" type="text" name="adress" value={formData.adress} onChange={handleChange} />
-          </div>*/}
-
-          {/*<div style={{ display: "flex", justifyContent: "space-between", marginBottom: "15px" }}>
-            <label className="montserratText">Phone Number:</label>
-            <input className="textfields" type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} />
-          </div>*/}
-
-          <div className="sign-form-row">
+        <motion.form
+          className="sign-form"
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <motion.div
+            className="sign-form-row"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <label className="montserratText">Email:</label>
-            <input className="textfields" type="email" name="email" value={formData.email} onChange={handleChange} />
-          </div>
+            <input
+              className="textfields"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </motion.div>
 
-          <div className="sign-form-row">
+          <motion.div
+            className="sign-form-row"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <label className="montserratText">Password:</label>
-            <input className="textfields" type="password" name="password" value={formData.password} onChange={handleChange} />
-          </div>
+            <input
+              className="textfields"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </motion.div>
 
-          <div className="sign-form-row">
+          <motion.div
+            className="sign-form-row"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <label className="montserratText">Confirm Password:</label>
-            <input className="textfields" type="password" name="confirm_password" value={formData.confirm_password} onChange={handleChange} />
-          </div>
+            <input
+              className="textfields"
+              type="password"
+              name="confirm_password"
+              value={formData.confirm_password}
+              onChange={handleChange}
+            />
+          </motion.div>
 
-         {/* <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "50px" }}>
-            <label className="montserratText">Birth Date:</label>
-            <input className="textfields" type="date" name="birth_date" value={formData.birth_date} onChange={handleChange} />
-          </div>*/}
-          <button className="body_button sign-submit" type="submit">Sign Up</button>
-        </form>
-        <div className="sign-toggle">
-          <button
+          <motion.button
+            className="body_button sign-submit"
+            type="submit"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Sign Up
+          </motion.button>
+        </motion.form>
+        <motion.div
+          className="sign-toggle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <motion.button
             onClick={onToggle}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Already have an account? Sign In
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

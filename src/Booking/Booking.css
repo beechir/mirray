@@ -219,3 +219,327 @@
     font-size: 12px !important;
   }
 }
+
+.reservation-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 106px 7vw 86px;
+  color: #eae9e3;
+}
+
+.reservation-shell {
+  width: min(980px, 100%);
+  display: grid;
+  gap: 22px;
+}
+
+.reservation-heading {
+  text-align: right;
+  direction: rtl;
+}
+
+.reservation-heading p {
+  margin: 0 0 8px;
+  color: #dab901;
+  font-family: "Varino", "Montserrat", sans-serif;
+  font-size: 13px;
+}
+
+.reservation-heading h1 {
+  margin: 0;
+  color: #fff8dc;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-shadow:
+    0 0 14px rgba(218, 185, 1, 0.26),
+    0 0 28px rgba(218, 185, 1, 0.14);
+}
+
+.reservation-heading span {
+  display: block;
+  margin-top: 10px;
+  color: rgba(234, 233, 227, 0.76);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.reservation-form,
+.reservation-list {
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.56);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.reservation-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.reservation-field {
+  display: grid;
+  gap: 8px;
+}
+
+.reservation-field-wide {
+  grid-column: 1 / -1;
+}
+
+.reservation-field label {
+  color: rgba(234, 233, 227, 0.78);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+}
+
+.reservation-field input,
+.reservation-field select,
+.reservation-field textarea {
+  width: 100%;
+  color: #eae9e3;
+  font-family: "Montserrat", sans-serif;
+}
+
+.reservation-field input {
+  padding: 8px 0;
+}
+
+.reservation-field select,
+.reservation-field textarea {
+  padding: 10px 12px;
+  border: 1px solid rgba(234, 233, 227, 0.36);
+  border-radius: 8px;
+  outline: none;
+  background-color: rgba(8, 9, 17, 0.48);
+}
+
+.reservation-field textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.reservation-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #dab901;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 14px;
+}
+
+.reservation-submit {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(260px, 100%);
+}
+
+.reservation-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.reservation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.reservation-list {
+  display: grid;
+  gap: 14px;
+}
+
+.reservation-list h2 {
+  margin: 0;
+  color: #fff8dc;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.reservation-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid rgba(234, 233, 227, 0.18);
+  border-radius: 8px;
+  background-color: rgba(8, 9, 17, 0.4);
+}
+
+.reservation-card-side {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+
+.reservation-card-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.reservation-card-actions button {
+  padding: 8px 12px;
+  color: #eae9e3;
+  background-color: transparent;
+  border: 1px solid rgba(234, 233, 227, 0.46);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.reservation-card-actions button:hover:not(:disabled) {
+  color: #fff8dc;
+  border-color: #dab901;
+  box-shadow: 0 0 10px rgba(218, 185, 1, 0.25);
+}
+
+.reservation-card-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.reservation-card h3,
+.reservation-card p {
+  margin: 0;
+}
+
+.reservation-card h3 {
+  color: #fff8dc;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.reservation-card p {
+  margin-top: 8px;
+  color: rgba(234, 233, 227, 0.72);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.reservation-status {
+  padding: 7px 10px;
+  border: 1px solid rgba(234, 233, 227, 0.34);
+  border-radius: 8px;
+  color: #fff8dc;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 12px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.reservation-status-waiting_for_review {
+  border-color: rgba(218, 185, 1, 0.68);
+}
+
+.reservation-status-approved {
+  border-color: rgba(72, 194, 116, 0.78);
+}
+
+.reservation-status-discarded {
+  border-color: rgba(230, 88, 88, 0.78);
+}
+
+@media (max-width: 760px) {
+  .reservation-page {
+    padding: 122px 18px 86px;
+  }
+
+  .reservation-form {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .reservation-card {
+    grid-template-columns: 1fr;
+  }
+
+  .reservation-status {
+    justify-self: start;
+  }
+}
+
+.confirm-email-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 106px 7vw 86px;
+  color: #eae9e3;
+  direction: rtl;
+}
+
+.confirm-email-panel {
+  width: min(620px, 100%);
+  display: grid;
+  gap: 18px;
+  text-align: right;
+  border: 1px solid rgba(234, 233, 227, 0.28);
+  border-radius: 8px;
+  padding: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 9, 17, 0.62);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.confirm-email-panel p {
+  margin: 0;
+  color: #dab901;
+  font-family: "Varino", "Montserrat", sans-serif;
+  font-size: 13px;
+}
+
+.confirm-email-panel h1 {
+  margin: 0;
+  color: #fff8dc;
+  font-family: "shajara", "NotoKufiLocal", "Noto Kufi Arabic", serif;
+  font-size: clamp(44px, 6vw, 78px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.confirm-email-panel span,
+.confirm-email-message {
+  color: rgba(234, 233, 227, 0.78);
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.confirm-email-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.confirm-email-actions a {
+  text-decoration: none;
+}
+
+.confirm-email-actions button:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
+.confirm-email-message {
+  color: #dab901;
+}

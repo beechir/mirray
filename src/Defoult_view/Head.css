@@ -43,6 +43,34 @@
   align-items: center;
 }
 
+.head-login-button {
+  padding: 8px 12px;
+  color: #eae9e3;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    ),
+    rgba(8, 9, 17, 0.5);
+  border: 1px solid rgba(234, 233, 227, 0.72);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "NotoKufiLocal", "Noto Kufi Arabic", sans-serif;
+  font-size: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.head-login-button:hover {
+  color: #fff8dc;
+  border-color: #dab901;
+  box-shadow:
+    0 0 5px #dab901db,
+    0 0 10px #d8ad02dc,
+    0 0 15px #de9c01e1;
+  transform: scale(1.05);
+}
+
 .head-settings-button {
   width: 42px;
   height: 42px;

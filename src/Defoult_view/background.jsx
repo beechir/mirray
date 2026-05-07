@@ -1,8 +1,9 @@
 import bgImage from "../assets/background.png";
+import { motion } from "framer-motion";
 
 function Background({ bgColor = "#080911" }) {
   return (
-    <div
+    <motion.div
       style={{
         backgroundColor: bgColor,
         backgroundImage: `url(${bgImage})`,
@@ -17,9 +18,16 @@ function Background({ bgColor = "#080911" }) {
         zIndex: -1, // Ensures the background is behind other content
         pointerEvents: "none",
         userSelect: "none",
-        transition: "background-color 5s ease-in-out",
       }}
-    ></div>
+      animate={{
+        backgroundPosition: ["center", "center 10%", "center"],
+      }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+    ></motion.div>
   );
 }
 

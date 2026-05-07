@@ -58,7 +58,10 @@
   border: 1px solid rgba(234, 233, 227, 0.72);
   border-radius: 8px;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .about-next:hover {
@@ -93,5 +96,9 @@
 
   .about-message {
     text-align: center;
+  }
+
+  .about-social-links {
+    justify-content: center;
   }
 }

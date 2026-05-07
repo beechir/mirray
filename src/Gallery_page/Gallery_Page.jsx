@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Default_view from "../Defoult_view/Default_view.jsx";
+import { motion } from "framer-motion";
 import "./Gallery_Page.css";
 
 const videos = [
@@ -18,7 +19,7 @@ const videos = [
     title: "Miray Production",
     description: "عمل من معرض الفيديو الخاص بنا.",
   },
-   {
+  {
     id: "XiqXzDZVDKM",
     title: "Miray Production",
     description: "عمل من معرض الفيديو الخاص بنا.",
@@ -30,19 +31,55 @@ function Gallery_Page() {
     document.title = "Gallery | Miray";
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <Default_view>
       <section className="gallery-page">
-        <div className="gallery-content">
-          <div className="gallery-heading">
+        <motion.div
+          className="gallery-content"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div className="gallery-heading" variants={itemVariants}>
             <p>Miray Production</p>
             <h1>المعرض</h1>
             <span>مختارات من اعمالنا، يمكنك مشاهدتها مباشرة هنا.</span>
-          </div>
+          </motion.div>
 
-          <div className="gallery-video-grid">
-            {videos.map((video) => (
-              <article className="gallery-video-card" key={video.id}>
+          <motion.div
+            className="gallery-video-grid"
+            variants={containerVariants}
+          >
+            {videos.map((video, index) => (
+              <motion.article
+                className="gallery-video-card"
+                key={video.id}
+                variants={itemVariants}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  rotateX: 5,
+                  z: 50,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
                 <div className="gallery-video-frame">
                   <iframe
                     src={`https://www.youtube.com/embed/${video.id}`}
@@ -55,10 +92,10 @@ function Gallery_Page() {
                   <h2>{video.title}</h2>
                   <p>{video.description}</p>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
     </Default_view>
   );
