@@ -24,12 +24,12 @@ function Body() {
           opacity: { duration: 1, delay: 0.2 },
           scale: { type: "spring", stiffness: 100, damping: 20, delay: 0.2 },
           y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
-          rotate: { type: "spring", stiffness: 100, damping: 20, delay: 0.2 }
+          rotate: { type: "spring", stiffness: 100, damping: 20, delay: 0.2 },
         }}
         whileHover={{
           scale: 1.08,
           rotate: 2,
-          filter: "drop-shadow(0 20px 40px rgba(218, 185, 1, 0.4))"
+          filter: "drop-shadow(0 20px 40px rgba(218, 185, 1, 0.4))",
         }}
       />
 
@@ -44,12 +44,12 @@ function Body() {
           opacity: { duration: 1, delay: 0.4 },
           scale: { type: "spring", stiffness: 120, damping: 15, delay: 0.4 },
           y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 },
-          rotate: { type: "spring", stiffness: 120, damping: 15, delay: 0.4 }
+          rotate: { type: "spring", stiffness: 120, damping: 15, delay: 0.4 },
         }}
         whileHover={{
           scale: 1.1,
           rotate: -3,
-          filter: "drop-shadow(0 15px 35px rgba(255, 255, 255, 0.3))"
+          filter: "drop-shadow(0 15px 35px rgba(255, 255, 255, 0.3))",
         }}
       />
 
@@ -61,7 +61,7 @@ function Body() {
           type: "spring",
           stiffness: 100,
           damping: 25,
-          delay: 0.6
+          delay: 0.6,
         }}
       >
         <motion.button
@@ -73,20 +73,19 @@ function Body() {
             type: "spring",
             stiffness: 150,
             damping: 20,
-            delay: 0.8
+            delay: 0.8,
           }}
           whileHover={{
             scale: 1.08,
             boxShadow: "0 20px 60px rgba(218, 185, 1, 0.5)",
-            background: "linear-gradient(135deg, rgba(218, 185, 1, 0.9), rgba(255, 248, 220, 0.9))"
+            background:
+              "linear-gradient(135deg, rgba(218, 185, 1, 0.9), rgba(255, 248, 220, 0.9))",
           }}
           whileTap={{
             scale: 0.95,
-            boxShadow: "0 10px 30px rgba(218, 185, 1, 0.3)"
+            boxShadow: "0 10px 30px rgba(218, 185, 1, 0.3)",
           }}
         >
-          {mainButtonText}
-        </motion.button>
           {mainButtonText}
         </motion.button>
         <span className="body-action-separator">او</span>
@@ -99,15 +98,6 @@ function Body() {
           شاهد اعمالنا
         </motion.button>
       </motion.div>
-      {/*<h1
-  style={{
-    position: "absolute",
-      top: "60vh",       // 30% from the top
-      left: "10vw",  
-      fontSize: "70px",    // responsive size
-
-  }}
-  >welcome</h1> */}
     </div>
   );
 }

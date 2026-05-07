@@ -63,7 +63,7 @@ function Head() {
       transition={{
         type: "spring",
         stiffness: 120,
-        damping: 20
+        damping: 20,
       }}
     >
       <div className="head-container">
@@ -72,11 +72,16 @@ function Head() {
           className="glow-hover head-home"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ type: "spring", stiffness: 150, damping: 25, delay: 0.2 }}
+          transition={{
+            type: "spring",
+            stiffness: 150,
+            damping: 25,
+            delay: 0.2,
+          }}
           whileHover={{
             scale: 1.08,
             textShadow: "0 0 20px rgba(218, 185, 1, 0.8)",
-            color: "#fff8dc"
+            color: "#fff8dc",
           }}
         >
           الرئيسية
@@ -88,11 +93,16 @@ function Head() {
             className="glow-hover head-link"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 150, damping: 25, delay: 0.3 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 25,
+              delay: 0.3,
+            }}
             whileHover={{
               scale: 1.08,
               textShadow: "0 0 15px rgba(218, 185, 1, 0.6)",
-              color: "#fff8dc"
+              color: "#fff8dc",
             }}
           >
             احجز جلستك
@@ -102,11 +112,16 @@ function Head() {
             className="glow-hover head-link"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 150, damping: 25, delay: 0.4 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 25,
+              delay: 0.4,
+            }}
             whileHover={{
               scale: 1.08,
               textShadow: "0 0 15px rgba(218, 185, 1, 0.6)",
-              color: "#fff8dc"
+              color: "#fff8dc",
             }}
           >
             من نحن
@@ -116,11 +131,16 @@ function Head() {
             className="glow-hover head-link"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 150, damping: 25, delay: 0.5 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 25,
+              delay: 0.5,
+            }}
             whileHover={{
               scale: 1.08,
               textShadow: "0 0 15px rgba(218, 185, 1, 0.6)",
-              color: "#fff8dc"
+              color: "#fff8dc",
             }}
           >
             المعرض
@@ -130,11 +150,16 @@ function Head() {
             className="glow-hover head-link"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 150, damping: 25, delay: 0.6 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 25,
+              delay: 0.6,
+            }}
             whileHover={{
               scale: 1.08,
               textShadow: "0 0 15px rgba(218, 185, 1, 0.6)",
-              color: "#fff8dc"
+              color: "#fff8dc",
             }}
           >
             تواصل معنا
@@ -150,11 +175,16 @@ function Head() {
                 onClick={() => setIsSettingsOpen((isOpen) => !isOpen)}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.7 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                  delay: 0.7,
+                }}
                 whileHover={{
                   scale: 1.15,
                   rotate: 180,
-                  boxShadow: "0 10px 30px rgba(218, 185, 1, 0.4)"
+                  boxShadow: "0 10px 30px rgba(218, 185, 1, 0.4)",
                 }}
                 whileTap={{ scale: 0.85 }}
               >
@@ -200,11 +230,17 @@ function Head() {
               onClick={goToBooking}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: "spring", stiffness: 180, damping: 25, delay: 0.8 }}
+              transition={{
+                type: "spring",
+                stiffness: 180,
+                damping: 25,
+                delay: 0.8,
+              }}
               whileHover={{
                 scale: 1.08,
                 boxShadow: "0 15px 40px rgba(218, 185, 1, 0.5)",
-                background: "linear-gradient(135deg, rgba(218, 185, 1, 0.9), rgba(255, 248, 220, 0.9))"
+                background:
+                  "linear-gradient(135deg, rgba(218, 185, 1, 0.9), rgba(255, 248, 220, 0.9))",
               }}
               whileTap={{ scale: 0.92 }}
             >

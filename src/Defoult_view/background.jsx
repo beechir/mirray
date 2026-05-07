@@ -25,7 +25,7 @@ function Background({ bgColor = "#080911" }) {
       transition={{
         duration: 20,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut",
       }}
     ></motion.div>
   );

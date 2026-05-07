@@ -72,19 +72,19 @@ function About_Us_Page() {
               opacity: isFading ? 0 : 1,
               rotate: 0,
               y: 0,
-              filter: isFading ? "blur(5px)" : "blur(0px)"
+              filter: isFading ? "blur(5px)" : "blur(0px)",
             }}
             transition={{
               type: "spring",
               stiffness: 100,
               damping: 20,
-              duration: 0.8
+              duration: 0.8,
             }}
             key={currentIndex} // Force re-render for animation
             whileHover={{
               scale: 1.05,
               rotate: 2,
-              boxShadow: "0 30px 60px rgba(218, 185, 1, 0.3)"
+              boxShadow: "0 30px 60px rgba(218, 185, 1, 0.3)",
             }}
           />
 
@@ -111,7 +111,7 @@ function About_Us_Page() {
               whileHover={{
                 scale: 1.15,
                 rotate: 15,
-                boxShadow: "0 20px 40px rgba(218, 185, 1, 0.6)"
+                boxShadow: "0 20px 40px rgba(218, 185, 1, 0.6)",
               }}
               whileTap={{ scale: 0.85, rotate: -5 }}
               initial={{ scale: 0, rotate: -180 }}
@@ -120,7 +120,7 @@ function About_Us_Page() {
                 type: "spring",
                 stiffness: 200,
                 damping: 15,
-                delay: 0.4
+                delay: 0.4,
               }}
             >
               <motion.img

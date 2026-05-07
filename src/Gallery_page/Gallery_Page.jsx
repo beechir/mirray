@@ -75,7 +75,7 @@ function Gallery_Page() {
                   rotateY: 5,
                   rotateX: 5,
                   z: 50,
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
